@@ -47,8 +47,8 @@ int main() {
             }
             case 3: {
                 Name name1("Клеопатра");
-                Name name2("Пушкин Александр Сергеевич");
-                Name name3("Маяковский Владимир");
+                Name name2("Пушкин", "Александр", "Сергеевич");
+                Name name3("Маяковский", "Владимир");
 
                 NamedHuman human1(name1, 152);
                 NamedHuman human2(name2, 167);
