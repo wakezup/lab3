@@ -35,8 +35,8 @@ int main() {
             }
             case 2: {
                 Name name1("Клеопатра");
-                Name name2("Пушкин Александр Сергеевич");
-                Name name3("Маяковский Владимир");
+                Name name2("Пушкин", "Александр", "Сергеевич");
+                Name name3("Маяковский", "Владимир");
 
                 std::cout << "[РЕЗУЛЬТАТ] Вывод об именах:" << std::endl;
                 std::cout << "\t" << name1.print() << std::endl;
@@ -107,8 +107,6 @@ int main() {
                 Fraction sum = f1 + f2 + f3;
                 Fraction difference = f1 - f2 - f3;
                 Fraction product = f1 * f2 * f3;
-                Fraction quotient = f1 / f2 / f3;
-                Fraction result = ((f1 + f2) / f3) - 5;
 
                 std::cout << "[РЕЗУЛЬТАТ] " << f1.print() << " + "
                           << f2.print() << " + " << f3.print() << " = "
@@ -122,13 +120,31 @@ int main() {
                           << f2.print() << " * " << f3.print() << " = "
                           << product.print() << std::endl;
 
-                std::cout << "[РЕЗУЛЬТАТ] " << f1.print() << " / "
-                          << f2.print() << " / " << f3.print() << " = "
-                          << quotient.print() << std::endl; 
+                if (f2.print() == "0" || f3.print() == "0") {
+                    std::cout << "[ОШИБКА] " << f1.print() << " / "
+                              << f2.print() << " / " << f3.print() << " = "
+                              << "Деление на ноль невозможно."
+                              << std::endl;
+                } else {
+                    Fraction quotient = f1 / f2 / f3;
+                    std::cout << "[РЕЗУЛЬТАТ] " << f1.print() << " / "
+                              << f2.print() << " / " << f3.print() << " = "
+                              << quotient.print() << std::endl;
+                }
 
-                std::cout << "[РЕЗУЛЬТАТ] ((" << f1.print() << " + "
-                          << f2.print() << ") / " << f3.print() << ") - 5 = "
-                          << result.print() << std::endl;
+                if (f3.print() == "0") {
+                    std::cout << "[ОШИБКА] ((" << f1.print() << " + "
+                              << f2.print() << ") / " << f3.print()
+                              << ") - 5 = "
+                              << "Деление на ноль невозможно."
+                              << std::endl;
+                } else {
+                    Fraction result = ((f1 + f2) / f3) - 5;
+                    std::cout << "[РЕЗУЛЬТАТ] ((" << f1.print() << " + "
+                              << f2.print() << ") / " << f3.print()
+                              << ") - 5 = "
+                              << result.print() << std::endl;
+                }
 
                 break;
             }
